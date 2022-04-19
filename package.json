@@ -9,6 +9,7 @@
     "lint": "eslint src/**/*.tsx"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.4",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
