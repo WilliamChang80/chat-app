@@ -1,15 +1,19 @@
-import logo from 'assets/logo.png'
+import logo from 'assets/images/logo.png'
+import Accordion from 'components/accordion'
 
 const SidebarServer = () => {
     return (
-        <aside className="w-1/4" aria-label="Sidebar">
-            <div className="overflow-y-auto py-4 px-3 bg-primary h-screen" >
-                <ul className="space-y-2">
+        <aside className="w-1/4">
+            <div className="bg-primary h-screen flex flex-col divide-y-2 divide-black/25">
+                <ul className="space-y-2 py-3 px-3 bg-primary-dark hover:bg-primary-highlight">
                     <li>
-                        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                            Server Name
+                        <a href="#" className="text-white">
+                            <h1>Server Name</h1>
                         </a>
                     </li>
+                </ul>
+                <ul className="overflow-y-scroll ">
+                    <Accordion label="Channel A" />
                 </ul>
             </div>
         </aside>
