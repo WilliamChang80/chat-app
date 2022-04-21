@@ -1,7 +1,14 @@
-import logo from 'assets/images/logo.png'
 import Accordion from 'components/accordion'
+import AccordionItem from 'components/accordion/accordion-item'
 
 const SidebarServer = () => {
+    const getItems = (): JSX.Element[] => {
+        return [
+            <AccordionItem label="asd" />,
+            <AccordionItem label="asd" />
+        ]
+    }
+
     return (
         <aside className="w-1/4">
             <div className="bg-primary h-screen flex flex-col divide-y-2 divide-black/25">
@@ -13,7 +20,7 @@ const SidebarServer = () => {
                     </li>
                 </ul>
                 <ul className="overflow-y-scroll ">
-                    <Accordion label="Channel A" />
+                    <Accordion label="Channel A" items={getItems()} />
                 </ul>
             </div>
         </aside>
