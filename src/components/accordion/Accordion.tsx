@@ -17,7 +17,7 @@ const Accordion = ({ label, items }: AccordionProps) => {
             <div className="w-full text-left lg:w-10/12 xl:w-10/12 sm:w-10/12"><h2 className="ml-3">{label}</h2></div>
             <div className="w-full text-right lg:w-1/12 xl:w-1/12 sm:w-1/12"><PlusIcon /></div>
         </button>
-        {isOpen && items}
+        {isOpen && items?.map((i,idx) => <div key={idx}>{i}</div>)}
     </>)
 }
 
