@@ -1,7 +1,6 @@
 import { HashtagIcon, UserAddIcon } from "@heroicons/react/solid";
 import Accordion from "components/accordion";
 import AccordionItem from "components/accordion/accordion-item";
-import Counter from "redux/features/counter/Counter";
 
 const SidebarServer = () => {
   const getItems = (): JSX.Element[] => {
