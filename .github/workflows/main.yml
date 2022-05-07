@@ -1,8 +1,8 @@
 name: chat-app pipeline
 on: [push]
 jobs:
-  lint:
-    name: lint
+  install:
+    name: install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -11,7 +11,15 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
-      - name:
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: lint
+      
+runs:
+  using: "composite"
+  steps:
+    - name: lint
+      uses: borales/actions-yarn@v2.3.0
+      with:
+        cmd: lint
+    - name: test
+      uses: borales/actions-yarn@v2.3.0
+      with:
+        cmd: echo "test"
