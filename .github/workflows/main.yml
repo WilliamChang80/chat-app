@@ -11,15 +11,11 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
-      
-runs:
-  using: "composite"
-  steps:
-    - name: lint
-      uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: lint
-    - name: test
-      uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: echo "test"
+      - name: lint
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: lint
+      - name: test
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: echo "test"
