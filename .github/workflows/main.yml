@@ -37,7 +37,3 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
-      - name: test
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: echo "Hello World"
