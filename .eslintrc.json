@@ -5,6 +5,8 @@
         "plugin:import/errors",
         "plugin:import/warnings"
     ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
     "parserOptions": {
         "project": "./tsconfig.json"
     },
@@ -16,5 +18,8 @@
                 ]
             }
         }
+    },
+    "rules": {
+        "react/jsx-filename-extension": "off"
     }
 }
