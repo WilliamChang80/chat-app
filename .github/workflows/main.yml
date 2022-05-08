@@ -41,3 +41,10 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: test
+      - name: create report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Test Report
+          path: reports/*.html
+          reporter: jest-junit
