@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe } from "@jest/globals";
 import slices, {
   counterSlice,
   CounterState,
@@ -13,7 +13,7 @@ describe("should return initial state", () => {
   } as CounterState;
 
   it("should be equal with initial state", () => {
-    expect(counterSlice.getInitialState()).to.be.deep.equal(initialState);
+    expect(counterSlice.getInitialState()).toMatchObject(initialState);
   });
 });
 
@@ -27,7 +27,7 @@ describe("should handle increment actions", () => {
       count: 1,
     } as CounterState;
 
-    expect(slices(initialState, increment())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, increment())).toMatchObject(expectedState);
   });
 
   it("should increase the count with negative count", () => {
@@ -39,7 +39,7 @@ describe("should handle increment actions", () => {
       count: 0,
     } as CounterState;
 
-    expect(slices(initialState, increment())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, increment())).toMatchObject(expectedState);
   });
 
   it("should increase the count with max integer size and equals", () => {
@@ -51,7 +51,7 @@ describe("should handle increment actions", () => {
       count: Number.MAX_SAFE_INTEGER + 1,
     } as CounterState;
 
-    expect(slices(initialState, increment())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, increment())).toMatchObject(expectedState);
   });
 });
 
@@ -65,7 +65,7 @@ describe("should handle decrement actions", () => {
       count: -1,
     } as CounterState;
 
-    expect(slices(initialState, decrement())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, decrement())).toMatchObject(expectedState);
   });
 
   it("should increase the count with positive count", () => {
@@ -77,7 +77,7 @@ describe("should handle decrement actions", () => {
       count: 0,
     } as CounterState;
 
-    expect(slices(initialState, decrement())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, decrement())).toMatchObject(expectedState);
   });
 
   it("should increase the count with min integer size and equals", () => {
@@ -89,7 +89,7 @@ describe("should handle decrement actions", () => {
       count: Number.MIN_SAFE_INTEGER - 1,
     } as CounterState;
 
-    expect(slices(initialState, decrement())).to.be.deep.equal(expectedState);
+    expect(slices(initialState, decrement())).toMatchObject(expectedState);
   });
 });
 
@@ -103,7 +103,7 @@ describe("should handle incrementByNumber actions", () => {
       count: 12,
     } as CounterState;
 
-    expect(slices(initialState, incrementByNumber(10))).to.be.deep.equal(
+    expect(slices(initialState, incrementByNumber(10))).toMatchObject(
       expectedState
     );
   });
@@ -117,7 +117,7 @@ describe("should handle incrementByNumber actions", () => {
       count: 1,
     } as CounterState;
 
-    expect(slices(initialState, incrementByNumber(-1))).to.be.deep.equal(
+    expect(slices(initialState, incrementByNumber(-1))).toMatchObject(
       expectedState
     );
   });
@@ -133,6 +133,6 @@ describe("should handle incrementByNumber actions", () => {
 
     expect(
       slices(initialState, incrementByNumber(Number.MAX_SAFE_INTEGER))
-    ).to.be.deep.equal(expectedState);
+    ).toMatchObject(expectedState);
   });
 });
