@@ -42,9 +42,8 @@ jobs:
         with:
           cmd: test
       - name: create report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
+        uses: actions/upload-artifact@v3
         with:
-          name: Test Report
-          path: reports/*.html
-          reporter: jest-junit
+          name: report
+          path: coverage/*.html
+
