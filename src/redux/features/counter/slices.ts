@@ -19,7 +19,9 @@ export const counterSlice = createSlice({
       state.count -= 1;
     },
     incrementByNumber: (state: CounterState, { payload }) => {
-      state.count += payload;
+      if (payload > 0) {
+        state.count += payload;
+      }
     },
   },
 });
