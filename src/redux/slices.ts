@@ -10,6 +10,12 @@ interface GenericState<T> {
   status: "loading" | "finished" | "error";
 }
 
+interface GenericStateProps<T, J extends SliceCaseReducers<GenericState<T>>> {
+  name: string;
+  initialState: GenericState<T>;
+  reducers: ValidateSliceCaseReducers<GenericState<T>, J>;
+}
+
 export const createGenericSlice = <
   T,
   Reducers extends SliceCaseReducers<GenericState<T>>
@@ -17,12 +23,8 @@ export const createGenericSlice = <
   name = "",
   initialState,
   reducers,
-}: {
-  name: string;
-  initialState: GenericState<T>;
-  reducers: ValidateSliceCaseReducers<GenericState<T>, Reducers>;
-}) => {
-  return createSlice({
+}: GenericStateProps<T, Reducers>) =>
+  createSlice({
     name,
     initialState,
     reducers: {
@@ -36,4 +38,3 @@ export const createGenericSlice = <
       ...reducers,
     },
   });
-};

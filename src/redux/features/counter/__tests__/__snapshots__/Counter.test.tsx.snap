@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`increase when + button clicked 1`] = `
+<div>
+  <div>
+    <button
+      aria-label="Decrement value"
+      onClick={[Function]}
+    >
+      Decrement
+    </button>
+    <span>
+      1
+    </span>
+    <button
+      aria-label="Increment value"
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+    <button
+      aria-label="+10"
+      onClick={[Function]}
+    >
+      +10
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test counter increase when + button clicked 1`] = `
+<div>
+  <div>
+    <button
+      aria-label="Decrement value"
+      onClick={[Function]}
+    >
+      Decrement
+    </button>
+    <span
+      data-testid="counter-value"
+    >
+      1
+    </span>
+    <button
+      aria-label="Increment value"
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+    <button
+      aria-label="+10"
+      onClick={[Function]}
+    >
+      +10
+    </button>
+  </div>
+</div>
+`;
