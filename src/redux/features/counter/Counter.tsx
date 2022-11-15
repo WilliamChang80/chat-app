@@ -1,5 +1,7 @@
-import { RootState } from "redux/store";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { RootState } from "redux/store";
 import * as counterActions from "./slices";
 
 interface CounterDispatchProps {
@@ -26,7 +28,7 @@ const Counter = ({
         <button aria-label="Decrement value" onClick={() => decrement()}>
           Decrement
         </button>
-        <span>{counter.count}</span>
+        <span data-testid="counter-value">{counter.count}</span>
         <button aria-label="Increment value" onClick={() => increment()}>
           Increment
         </button>
@@ -38,19 +40,17 @@ const Counter = ({
   );
 };
 
-const mapStateToProps = ({ counter }: RootState) => {
-  return {
-    counter,
-  };
-};
+const mapStateToProps = ({ counter }: RootState): CounterStateProps => ({
+  counter,
+});
 
-const mapDispatchToProps = (dispatch: any): CounterDispatchProps => {
-  return {
-    increment: () => dispatch(counterActions.increment()),
-    decrement: () => dispatch(counterActions.decrement()),
-    incrementByNumber: (count: number) =>
-      dispatch(counterActions.incrementByNumber(count)),
-  };
-};
+const mapDispatchToProps = (
+  dispatch: Dispatch<PayloadAction<number | void>>
+): CounterDispatchProps => ({
+  increment: () => dispatch(counterActions.increment({})),
+  decrement: () => dispatch(counterActions.decrement({})),
+  incrementByNumber: (count: number) =>
+    dispatch(counterActions.incrementByNumber(count)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

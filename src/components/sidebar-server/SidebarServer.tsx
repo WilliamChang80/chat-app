@@ -1,6 +1,7 @@
 import { HashtagIcon, UserAddIcon } from "@heroicons/react/solid";
 import Accordion from "components/accordion";
 import AccordionItem from "components/accordion/accordion-item";
+import Counter from "redux/features/counter";
 
 const SidebarServer = () => {
   const getItems = (): JSX.Element[] => {
@@ -28,7 +29,10 @@ const SidebarServer = () => {
             </a>
           </li>
         </ul>
-        <ul className="overflow-y-scroll ">
+        <ul className="py-3 space-y-3">
+          <Counter />
+          <Accordion label="Channel A" items={getItems()} />
+          <Accordion label="Channel A" items={getItems()} />
           <Accordion label="Channel A" items={getItems()} />
         </ul>
       </div>

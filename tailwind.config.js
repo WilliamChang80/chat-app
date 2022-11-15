@@ -1,5 +1,6 @@
 module.exports = {
-  content: ["./src/**/*.{ts,tsx}", "./node_modules/flowbite/**/*.js"],
+  content: ["./src/**/*.{ts,tsx}"],
+  plugins: [require("flowbite/plugin")],
   theme: {
     fontFamily: {
       sans: ['"PT Sans"', "sans-serif"],
@@ -13,5 +14,4 @@ module.exports = {
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
 };
